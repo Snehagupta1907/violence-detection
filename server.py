@@ -3,10 +3,13 @@ from flask import Flask, request, jsonify
 import cv2
 import numpy as np
 from collections import deque
+from flask_cors import CORS
+
 
 app = Flask(__name__)
+CORS(app)
 
-ALLOWED_EXTENSIONS = {'mp4', 'avi'}
+ALLOWED_EXTENSIONS = {'mp4'}
 SEQUENCE_LENGTH = 16
 IMAGE_HEIGHT = 64
 IMAGE_WIDTH = 64

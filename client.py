@@ -1,5 +1,5 @@
 import requests
-video_file_path = 'mixkit-married-couple-violently-arguing-4522-medium.mp4'
+video_file_path = 'videoplayback2.mp4'
 
 files = {'file': open(video_file_path, 'rb')}
 response = requests.post('http://127.0.0.1:5000/predict', files=files)

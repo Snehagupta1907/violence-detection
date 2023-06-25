@@ -26,6 +26,7 @@ function App() {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       const { predicted_class, output_video } = response.data;
+      console.log(response.data)
       setPredictedClass(predicted_class);
       setOutputVideoPath(output_video);
       setLoader(false);

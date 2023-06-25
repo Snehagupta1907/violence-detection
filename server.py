@@ -1,9 +1,10 @@
 from keras.models import load_model
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_file
 import cv2
 import numpy as np
 from collections import deque
 from flask_cors import CORS
+import os
 
 
 app = Flask(__name__)
@@ -73,7 +74,9 @@ def predict():
     if file and allowed_file(file.filename):
         file_path = 'video_file.mp4'
         file.save(file_path)
-        output_file_path = 'output.mp4'
+        output_folder_path = os.path.join('frontend', 'src', 'assets')
+        os.makedirs(output_folder_path, exist_ok=True)
+        output_file_path = os.path.join(output_folder_path, 'output.mp4')
         predicted_class = predict_frames(file_path, output_file_path)
         return jsonify({'message': 'Prediction completed', 'predicted_class': predicted_class, 'output_video': output_file_path})
 

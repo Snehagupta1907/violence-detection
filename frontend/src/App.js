@@ -47,10 +47,10 @@ function App() {
 
       {loader && <Loader/>}
 
-      {  1 &&  (
+      {  predictedClass &&  (
         <div>
           <h2 className="font-bold text-red-400 mt-10">Predicted Class: {predictedClass}</h2>
-          {1 && (
+          {outputVideoPath && (
             <video src={require(`./assets/${outputVideoPath}`)} controls="controls" width="640" height="480" type="video/mp4" />
           )}
         </div>
